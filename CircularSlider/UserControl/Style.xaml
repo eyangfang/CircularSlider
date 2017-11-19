@@ -1,0 +1,81 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CircularSlider.UserControl">
+
+    <SolidColorBrush x:Name="ScaleBrush"
+                     Color="Black" />
+    <SolidColorBrush x:Name="ScaleTickBrush"
+                     Color="#FFFFF7AA" />
+    <SolidColorBrush x:Name="TrailBrush"
+                     Color="Blue" />
+    <SolidColorBrush x:Name="TickBrush"
+                     Color="#FFD4CA6A" />
+    <SolidColorBrush x:Name="NeedleBrush"
+                     Color="#FFCC3D29" />
+    
+    <Style x:Key="Percentage"
+           TargetType="local:CircularSlider">
+        <!--<Setter Property="MinAngle"
+                Value="-180" />
+        <Setter Property="MaxAngle"
+                Value="180" />-->
+        <Setter Property="NeedleWidth"
+                Value="0" />
+        <!--<Setter Property="Unit"
+                Value="%" />-->
+        <Setter Property="TickBrush"
+                Value="Transparent" />
+        <Setter Property="ScaleTickBrush"
+                Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CircularSlider">
+                    <Viewbox>
+                        <Grid x:Name="PART_Container"
+                              Height="200"
+                              Width="200"
+                              Background="Transparent">
+
+                            <!-- Scale -->
+                            <Path Name="PART_Scale"
+                                  Stroke="{TemplateBinding ScaleBrush}"
+                                  StrokeThickness="10" />
+
+                            <!-- Trail -->
+                            <Path Name="PART_Trail"
+                                  Stroke="{TemplateBinding TrailBrush}"
+                                  StrokeThickness="10" />
+
+                            <!-- Value and Unit -->
+                            <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <TextBlock Name="PART_ValueText"
+                                           Foreground="{TemplateBinding ValueBrush}"
+                                           FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Text="{TemplateBinding Value}"
+                                           TextAlignment="Center"
+                                           Margin="0 0 0 2" />
+                                <TextBlock Foreground="{TemplateBinding UnitBrush}"
+                                           FontSize="16"
+                                           TextAlignment="Center"
+                                           Text="{TemplateBinding Unit}"
+                                           Margin="0" />
+                            </StackPanel>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="KeyEvent">
+                                    <VisualState x:Name="PointerPressed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

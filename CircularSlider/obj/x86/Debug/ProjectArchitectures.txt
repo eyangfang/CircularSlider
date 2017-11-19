@@ -1,0 +1,1 @@
+C:\Users\Yang Fang\documents\visual studio 2017\Projects\CircularSlider\CircularSlider\CircularSlider.csproj;x86
